@@ -31,8 +31,19 @@ const quotes = [
 ];
 
 const app = createApp({
+
 	setup() {
-		return { quotes };
+        const showAuthor=ref(true);
+
+        const toggleAuthor=()=>{
+            showAuthor.value=!showAuthor.value
+        }
+
+		return { 
+            quotes,
+            showAuthor,
+            toggleAuthor
+         };
 	},
 });
 
