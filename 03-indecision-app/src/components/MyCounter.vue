@@ -4,29 +4,21 @@
     <h3>Square {{ squareCounter }}</h3>
 
     <div>
-      <button @click="increaseValue">+1</button>
-      <button @click="decreaseValue">-1</button>
+      <button class="btn btn-primary" @click="increaseValue">+1</button>
+      <button class="btn btn-primary" @click="decreaseValue">-1</button>
+      <!-- <button class="p-5 bg-blue-500 rounded" @click="decreaseValue">-1</button> -->
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { useCounter } from '../composables/useCounter';
+
+const { counter, squareCounter, increaseValue, decreaseValue } = useCounter();
 
 interface Props {
   value: number;
 }
 
 const props = defineProps<Props>();
-
-const counter = ref(props.value);
-const squareCounter = computed(() => counter.value * counter.value);
-
-const increaseValue = () => {
-  counter.value++;
-};
-
-const decreaseValue = () => {
-  counter.value--;
-};
 </script>
