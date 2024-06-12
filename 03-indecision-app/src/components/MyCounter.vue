@@ -14,11 +14,13 @@
 <script lang="ts" setup>
 import { useCounter } from '../composables/useCounter';
 
-const { counter, squareCounter, increaseValue, decreaseValue } = useCounter();
-
 interface Props {
   value: number;
 }
 
 const props = defineProps<Props>();
+
+const { counter, squareCounter, increaseValue, decreaseValue } = useCounter(props.value);
+
+
 </script>
